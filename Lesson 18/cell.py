@@ -1,0 +1,188 @@
+import pygame
+import random
+
+class Cell:
+    def __init__(self, cell_id, cell_x, cell_y):
+        self.__id = cell_id
+        self._x = cell_x
+        self._y = cell_y
+        self._direction_x = random.choice([-1, 0, 1]) 
+        self._direction_y = random.choice([-1, 0, 1])
+        self._speed_x = random.uniform(0.1, 1.0)
+        self._speed_y = random.uniform(0.1, 1.0)
+        self._change_direction_probability = 0.01
+        self._change_speed_probability = 0.01
+        self._energy = random.randint(50, 100)
+        self.__frame_count = 0
+        self._alive = True
+
+    def update(self, screen_width, screen_height):
+        self._move()
+        self.__constraint_position(screen_width, screen_height)
+        self.__decrease_energy()
+
+    def get_rect(self):
+        return pygame.Rect(self._x, self._y, self._image.get_width(), self._image.get_height())
+
+    def check_collision(self, other_cell):
+        rect1 = self.get_rect()
+        rect2 = other_cell.get_rect()
+        return rect1.colliderect(rect2)
+
+    def handle_collision(self, other_cell):
+        if isinstance(other_cell, Plant):
+            self._energy = min((self._energy + (other_cell.get_energy()) // 2), 100)
+        elif isinstance(other_cell, Hunter):
+            self._alive = False
+        else:
+            self._direction_x *= -1
+            self._direction_y *= -1
+
+    def get_energy(self):
+        return self._energy
+
+    def _move(self):
+        if random.random() < self._change_direction_probability:
+            self._direction_x = random.choice([-1, 0, 1])
+            self._direction_y = random.choice([-1, 0, 1])
+
+        if random.random() < self._change_speed_probability:
+            self._speed_x = random.uniform(0.1, 1)
+            self._speed_y = random.uniform(0.1, 1)
+
+        self._x += self._direction_x * self._speed_x
+        self._y += self._direction_y * self._speed_y
+
+    def __constraint_position(self, screen_width, screen_height):
+        if self._x <= 0:
+            self._x = 0
+            self._direction_x *= -1
+        elif self._x >= screen_width - self._image.get_width():
+            self._x = screen_width - self._image.get_width()
+            self._direction_x *= -1
+
+        if self._y <= 0:
+            self._y = 0
+            self._direction_y *= -1
+        elif self._y >= screen_height - self._image.get_height():
+            self._y = screen_height - self._image.get_height()
+            self._direction_y *= -1
+
+    def draw(self, window):
+        window.blit(self._image, (self._x, self._y))
+        self.draw_energy(window)
+        #pygame.draw.rect(window, 'red', self.get_rect(), 2)
+        #pygame.draw.circle(window, 'red', (self._x, self._y), 5)
+
+    def __decrease_energy(self):
+        self.__frame_count += 1
+        if self.__frame_count >= 60:
+            self._energy -= 1
+            self.__frame_count = 0
+        if self._energy <= 0:
+            self._alive = False
+
+    def draw_energy(self, window):
+        if self._energy < 15:
+            color = "red"
+        elif 15 <= self._energy < 50:
+            color = "orange"
+        else:
+            color = "green"
+
+        bar_width = self._image.get_width()
+        bar_height = 5
+        energy_bar_width = bar_width * (self._energy / 100)
+
+        bar_x = self._x
+        bar_y = self._y - 10
+
+        pygame.draw.rect(window, (0, 0, 0), (bar_x - 1, bar_y - 1, bar_width + 2, bar_height + 2))
+        pygame.draw.rect(window, color, (bar_x, bar_y, energy_bar_width, bar_height))
+
+    def get_energy_level(self):
+        if self._energy < 15:
+            energy_level = "Critical"
+        elif 15 <= self._energy <= 50:
+            energy_level = "Moderate"
+        elif 50 < self._energy <= 80:
+            energy_level = "High"
+        else:
+            energy_level = "Very High"
+        return energy_level
+
+    def is_alive(self):
+        return self._alive
+
+    def get_id(self):
+        return self.__id
+
+    def get_position(self):
+        x = int(self._x)
+        y = int(self._y)
+        return f"({x}, {y})"
+
+    def get_type(self):
+        return self._type
+
+class Stinger(Cell):
+    _type = "Stinger"
+    _image = pygame.image.load("Graphics/life_2.png")
+
+    def handle_collision(self, other_cell):
+        if isinstance(other_cell, Plant):
+                self._energy = min(self._energy + (other_cell.get_energy() // 2), 100)
+        elif isinstance(other_cell, Hunter):
+            self._alive = False
+        else:
+            self._direction_x *= -1
+            self._direction_y *= -1
+
+class Amoeba(Cell):
+    _type = "Amoeba"
+    _image = pygame.image.load("Graphics/life_1.png")
+
+class Hunter(Cell):
+    _type = "Hunter"
+    _image = pygame.image.load("Graphics/life_4.png")
+
+    def handle_collision(self, other_cell):
+        if isinstance(other_cell, Plant) or isinstance(other_cell, Hunter):
+            self._direction_x *= -1
+            self._direction_y *= -1
+        else:
+            self._energy = min((self._energy + (other_cell.get_energy()) // 2), 100)
+            if isinstance(other_cell, Stinger):
+                self._energy -= 20
+                if self._energy <= 0:
+                    self._alive = False
+
+class Jumper(Cell):
+    _type = "Jumper"
+    _image = pygame.image.load("Graphics/life_3.png")
+
+    def _move(self):
+        if random.random() < self._change_direction_probability:
+            self._direction_x = random.choice([-1, 0, 0, 1])
+            self._direction_y = random.choice([-1, 0, 0, 1])
+
+        if random.random() < self._change_speed_probability:
+            self._speed_x = random.uniform(1, 3)
+            self._speed_y = random.uniform(1, 3)
+
+        self._x += self._direction_x * self._speed_x
+        self._y += self._direction_y * self._speed_y
+
+class Plant(Cell):
+    _type = "Plant"
+    _image = pygame.image.load("Graphics/plant.png")
+
+    def update(self, screen_width, screen_height):
+        pass
+
+    def draw_energy(self, window):
+        pass
+
+    def handle_collision(self, other_cell):
+        if not isinstance(other_cell, Hunter):
+            self._alive = False
