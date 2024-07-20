@@ -1,24 +1,29 @@
 import pygame, sys
 
+pygame.init()
+
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
-LIGHT_BLUE = (173, 216, 230)  # Light blue
+LIGHT_BLUE = (175, 238, 238)
 
 window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption('Artificial Life Simulator')
-
+pygame.display.set_caption("Artificial Life Simulation")
 clock = pygame.time.Clock()
 
+#Game Loop
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+	# 1. Event Handling
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			pygame.quit()
+			sys.exit()
 
-    #Update
 
-    #Drawing
-    window.fill(LIGHT_BLUE)
+	# 2. Updating Positions
 
-    pygame.display.flip()
-    clock.tick(60)
+
+	# 3. Drawing
+	window.fill(LIGHT_BLUE)
+
+	pygame.display.flip()
+	clock.tick(60)
