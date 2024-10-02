@@ -2,7 +2,7 @@ import pygame
 import random
 
 class Cell:
-	def __init__(self, cell_id, cell_x, cell_y):
+	def __init__(self, cell_id, cell_x, cell_y, cell_size):
 		self.__id = cell_id
 		self._x = cell_x
 		self._y = cell_y
@@ -15,6 +15,18 @@ class Cell:
 		self._energy = random.randint(50, 100)
 		self._alive = True
 		self.__frame_count = 0
+		self.__size = cell_size.get_size()
+		self._image = self.__scale_image(self._image, cell_size.get_scale())
+
+	def get_size(self):
+		return self.__size
+
+	def __scale_image(self, image, scale):
+		original_width = image.get_width()
+		original_height = image.get_height()
+		new_width = int(original_width * scale)
+		new_height = int(original_height * scale)
+		return pygame.transform.smoothscale(image, (new_width, new_height))
 
 	def is_alive(self):
 		return self._alive

@@ -16,6 +16,15 @@ class Cell:
         self.frame_count = 0
         self.alive = True
 
+    def get_energy_level(self):
+        if self.energy < 15:
+            energy_level = "Critical"
+        elif 15 <= self.energy <= 50:
+            energy_level = "Moderate"
+        else:
+            energy_level = "High"
+        return energy_level
+
     def update(self, screen_width, screen_height):
         self.move()
         self.constraint_position(screen_width, screen_height)
@@ -54,15 +63,12 @@ class Cell:
         #pygame.draw.rect(window, 'red', (self.x, self.y, self.image.get_width(), self.image.get_height()), 2)
         #pygame.draw.circle(window, 'red', (self.x, self.y), 5)  # Draw a red circle at the top-left corner
 
-    def print_details(self):
-        print(f"Cell ID: {self.id}, Position: ({int(self.x)}, {int(self.y)}), Type: {self.type}, Energy: {self.energy}")
-
     def decrease_energy(self):
         self.frame_count += 1
         if self.frame_count >= 60:
             self.energy -= 1
             self.frame_count = 0
-        if self.energy <= 0:
+        if self.energy == 0:
             self.alive = False
 
     def is_alive(self):
