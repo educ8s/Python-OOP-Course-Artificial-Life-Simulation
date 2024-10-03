@@ -1,8 +1,10 @@
-# Python OOP Course - Artificial Life Simulation
+# Mastering OOP: Build a Cellular Ecosystem in Python - Course Materials
 
 **Description:**
 
-This repository contains the code and accompanying materials for the "Object Oriented Programming Made Easy with Python" course. Explore the concepts of Object-Oriented Programming (OOP) through a hands-on project.
+This repository contains the code and accompanying materials for the "Object Oriented Programming Made Easy in Python" course offered by Programming with Nick. Explore the concepts of Object-Oriented Programming (OOP) through a hands-on project and take your skills to the next level!
+
+**Course Link:**  [Object Oriented Programming Made Easy in Python](https://programming-with-nick.thinkific.com/courses/Object-20Oriented%20Programming%20with%20Python)
 
 **Key Features:**
 
@@ -18,11 +20,11 @@ This repository contains the code and accompanying materials for the "Object Ori
 2. Install the required dependencies (Python and Pygame).
 3. Follow the step-by-step instructions in the accompanying course materials.
 
-**Note:** This repository is intended for students who have purchased the course. If you haven't enrolled, please visit [Link to course enrollment page] to learn more.
+**Note:** This repository is intended for students who have purchased the course from Programming with Nick. If you haven't enrolled, please visit the link above to learn more.
 
 **Additional Resources:**
 
-* [Link to course syllabus]
-* [Link to course forum]
+* [Link to course syllabus] (if applicable)
+* [Link to course forum] (if applicable)
 
 By accessing this repository, you agree to the terms and conditions of the course.
