@@ -20,7 +20,7 @@ The cellular ecosystem simulation project is a practical application of OOP conc
 
 **Watch a video of the final result of the program:**
 
-[![Promo Video](promo_video.mp4)]([https://github.com/your-username/your-repository/blob/master/promo_video.mp4](https://github.com/educ8s/Python-OOP-Course-Artificial-Life-Simulation/blob/main/promo_video.mp4))
+https://github.com/educ8s/Python-OOP-Course-Artificial-Life-Simulation/blob/main/promo_video.mp4
 
 **How to Use:**
 
