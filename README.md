@@ -6,7 +6,7 @@ This repository contains the code and accompanying materials for the "Object Ori
 
 ![OOP_Made_Easy](https://github.com/user-attachments/assets/e27bacb4-6b33-47cb-a9ec-6c0d4b14dca0)
 
-**Course Link:**  [Object Oriented Programming Made Easy in Python](https://programming-with-nick.thinkific.com/courses/Object-20Oriented%2Programming%20with%20Python) **(**[**50% OFF for a Few Days Only!**](https://programming-with-nick.thinkific.com/courses/Object-20Oriented%2Programming%20with%20Python)**)**
+**Course Link:**  [Object Oriented Programming Made Easy in Python](https://programming-with-nick.thinkific.com/courses/Object%20Oriented%20Programming%20with%20Python) **(**[**50% OFF for a Few Days Only!**](https://programming-with-nick.thinkific.com/courses/Object%20Oriented%20Programming%20with%20Python)**)**
 
 **Key Features:**
 
