@@ -31,4 +31,4 @@ https://github.com/user-attachments/assets/aa72b009-1a42-4de3-b6f0-31ae732617e7
 2. Install the required dependencies (Python and Pygame).
 3. Follow the step-by-step instructions in the accompanying course materials.
 
-**Note:** This repository is intended for students who have purchased the course from Programming with Nick. If you haven't enrolled, please visit [Object Oriented Programming Made Easy in Python](https://programming-with-nick.thinkific.com/courses/Object-20Oriented%2Programming%20with%20Python) to learn more and start your journey to mastering OOP!
+**Note:** This repository is intended for students who have purchased the course from Programming with Nick. If you haven't enrolled, please visit [Object Oriented Programming Made Easy in Python](https://programming-with-nick.thinkific.com/courses/Object%20Oriented%20Programming%20with%20Python) to learn more and start your journey to mastering OOP!
