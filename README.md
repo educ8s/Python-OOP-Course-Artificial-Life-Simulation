@@ -3,6 +3,8 @@
 **Description:**
 
 This repository contains the code and accompanying materials for the "Object Oriented Programming Made Easy in Python" course offered by Programming with Nick. Explore the concepts of Object-Oriented Programming (OOP) through a hands-on project and take your skills to the next level!
+![OOP_Made_Easy](https://github.com/user-attachments/assets/e27bacb4-6b33-47cb-a9ec-6c0d4b14dca0)
+
 
 **Course Link:**  [Object Oriented Programming Made Easy in Python](https://programming-with-nick.thinkific.com/courses/Object-20Oriented%20Programming%20with%20Python)
 
