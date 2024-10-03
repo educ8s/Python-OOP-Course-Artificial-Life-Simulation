@@ -16,7 +16,11 @@ This repository contains the code and accompanying materials for the "Object Ori
 
 **Cell Simulation Overview:**
 
-The cellular ecosystem simulation project is a practical application of OOP concepts. In this simulation, you'll create a virtual environment populated by various types of cells. Each cell will have its own unique characteristics, such as image, size, and behavior. Cells will interact with each other and their environment, leading to complex dynamics. This project provides an excellent opportunity to apply OOP principles to design and implement a realistic and engaging simulation.
+The cellular ecosystem simulation project is a practical application of OOP concepts. In this simulation, you'll create a virtual environment populated by various types of cells. Each cell will have its own unique characteristics, such as color, size, and behavior. Cells will interact with each other and their environment, leading to emergent behaviors and complex dynamics. This project provides an excellent opportunity to apply OOP principles to design and implement a realistic and engaging simulation.
+
+**Watch a video of the final result of the program:**
+
+[![Promo Video](promo_video.mp4)](https://github.com/your-username/your-repository/blob/master/promo_video.mp4)
 
 **How to Use:**
 
@@ -25,5 +29,10 @@ The cellular ecosystem simulation project is a practical application of OOP conc
 3. Follow the step-by-step instructions in the accompanying course materials.
 
 **Note:** This repository is intended for students who have purchased the course from Programming with Nick. If you haven't enrolled, please visit [Object Oriented Programming Made Easy in Python](https://programming-with-nick.thinkific.com/courses/Object-20Oriented%20Programming%20with%20Python) to learn more and start your journey to mastering OOP!
+
+**Additional Resources:**
+
+* [Link to course syllabus] (if applicable)
+* [Link to course forum] (if applicable)
 
 By accessing this repository, you agree to the terms and conditions of the course.
